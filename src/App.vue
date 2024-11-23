@@ -1,30 +1,43 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <h1>Zhopa</h1>
+    <div style="display: flex; gap: 10px; margin-bottom: 40px;">
+      <Button :label="'Сохранить изменения'" :type="1"/>
+      <Button :label="'Отмена'" :type="2"/>
+      <Button :label="'Выйти'" :type="3"/>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 0px; margin-bottom: 40px;">
+      <CheckBox :label="'Сохранить изменения'" :checked="true"/>
+      <CheckBox :label="'Отмена'" :checked="false"/>
+      <CheckBox :label="'Выйти'" :checked="false"/>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 0px; margin-bottom: 40px;">
+      <RadioButton :label="'Сохранить изменения'" :checked="false"/>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 0px; margin-bottom: 40px;">
+      <Input :label="'Название отчета'" :counter="false" :type="text" :placeholder="'Отчет'"/>
+      <Input :label="'Название отчета'" :counter="false" :type="text" :value="'Изначальное'"/>
+      <Input :label="'Название отчета'" :counter="false" :type="text" :maxLength="5"/>
+      <Input :label="'Название отчета'" :counter="false" :type="text"/>
+    </div>
+    
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
+<script>
+import Button from "../src/components/ButtonComponent.vue"; 
+import CheckBox from "../src/components/CheckBoxComponent.vue"; 
+import RadioButton from "../src/components/RadioButton.vue"; 
+import Input from "../src/components/Inputcomponent.vue"; 
+
+export default{
+  components: { Button, CheckBox, RadioButton, Input },
+}
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 </style>
